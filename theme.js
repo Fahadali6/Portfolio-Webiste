@@ -11,6 +11,14 @@ const formStatus = document.getElementById('form-status');
 const getPreferredTheme = () => {
   const savedTheme = localStorage.getItem(THEME_KEY);
   if (savedTheme === 'dark' || savedTheme === 'light') return savedTheme;
+const body = document.body;
+const themeToggle = document.getElementById('theme-toggle');
+
+const getPreferredTheme = () => {
+  const savedTheme = localStorage.getItem(THEME_KEY);
+  if (savedTheme === 'dark' || savedTheme === 'light') {
+    return savedTheme;
+  }
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 };
 
@@ -35,6 +43,8 @@ themeToggle?.addEventListener('click', () => {
 });
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+mediaQuery.addEventListener('change', (event) => {
   if (!localStorage.getItem(THEME_KEY)) {
     applyTheme(event.matches ? 'dark' : 'light');
   }
