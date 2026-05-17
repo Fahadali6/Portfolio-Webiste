@@ -94,8 +94,8 @@ nav ul {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 22px;
-  margin-left: 14px;
+  gap: 34px;
+  margin-left: 20px;
 }
 
 nav ul li a {
@@ -132,8 +132,15 @@ nav ul li a:hover {
   }
 
   .nav-actions {
-    gap: 16px;
-    margin-left: 8px;
+    gap: 24px;
+    margin-left: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-actions {
+    gap: 18px;
+    margin-left: 10px;
   }
 }
 
