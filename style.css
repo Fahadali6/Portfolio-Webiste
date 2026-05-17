@@ -18,7 +18,6 @@
   --client-text: #ffffff;
 }
 
-html.dark-mode,
 body.dark-mode {
   --bg-color: #0f1117;
   --surface-color: #171a23;
@@ -84,7 +83,6 @@ nav {
   z-index: 1;
   background-color: var(--surface-color);
   box-shadow: var(--shadow-color) 0px 48px 100px 0px;
-  padding: 8px 18px;
 }
 
 nav ul {
@@ -512,7 +510,6 @@ nav ul li a,
 .client-box,
 .contact-input,
 .contact-input input,
-.contact-input textarea,
 footer,
 footer p,
 #contact h3 {
@@ -560,72 +557,4 @@ body.dark-mode .theme-toggle__icon {
 body.dark-mode .theme-toggle__icon::before {
   border-color: var(--main-bg-color);
   transform: scale(1.1);
-}
-
-.contact-input {
-  width: min(680px, 92%);
-  min-height: 56px;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 14px;
-  padding: 16px;
-  border-radius: 10px;
-}
-
-.contact-input input,
-.contact-input textarea {
-  width: 100%;
-  padding: 0 14px;
-  text-align: left;
-  height: 44px;
-  border-radius: 5px;
-  border: 1px solid var(--border-color);
-  color: var(--text-color);
-  font-family: inherit;
-  font-size: 14px;
-  box-sizing: border-box;
-}
-
-.contact-input textarea {
-  min-height: 140px;
-  padding: 12px 14px;
-  resize: vertical;
-  line-height: 1.5;
-}
-
-.contact-input button {
-  width: 100%;
-  height: 44px;
-  border: none;
-  background-color: var(--main-bg-color);
-  color: var(--button-text);
-  border-radius: 5px;
-  margin: 0;
-  font-size: 14px;
-  cursor: pointer;
-  font-family: inherit;
-}
-
-.form-status {
-  min-height: 24px;
-  font-size: 14px;
-  color: var(--text-color);
-}
-
-.form-status.success {
-  color: #1ea362;
-}
-
-.form-status.error {
-  color: #d64045;
-}
-
-@media (max-width: 768px) {
-  .contact-input {
-    width: 92%;
-    padding: 12px;
-    gap: 12px;
-  }
 }
