@@ -609,3 +609,64 @@ body.dark-mode .theme-toggle__icon::before {
     padding: 10px 12px 14px;
   }
 }
+
+
+body,
+nav,
+nav ul li a,
+.skill-heading h2,
+.main-text p,
+.s-box-text strong,
+.project #hide,
+.project-btn,
+.client-box,
+.contact-input,
+.contact-input input,
+footer,
+footer p,
+#contact h3 {
+  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+body {
+  color: var(--text-color);
+}
+
+.theme-toggle {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  background: var(--surface-color);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+.theme-toggle__icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--main-bg-color);
+  position: relative;
+  transition: transform 0.35s ease;
+}
+
+.theme-toggle__icon::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: border-color 0.35s ease, transform 0.35s ease;
+}
+
+body.dark-mode .theme-toggle__icon {
+  transform: rotate(40deg) scale(0.95);
+}
+
+body.dark-mode .theme-toggle__icon::before {
+  border-color: var(--main-bg-color);
+  transform: scale(1.1);
+}
