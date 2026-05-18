@@ -5,6 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Personal Portfolio</title>
+    <script>
+      (function () {
+        var key = 'portfolio-theme';
+        var saved = localStorage.getItem(key);
+        var theme = saved === 'dark' || saved === 'light'
+          ? saved
+          : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        if (theme === 'dark') document.documentElement.classList.add('dark-mode');
+      })();
+    </script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,7 +34,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body id="body  ">
+  <body id="body">
     <!-- Navbar Section -->
     <section id="main">
       <nav>
@@ -40,11 +50,12 @@
           <li><a href="#client">Clients</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <!-- Contact Me Button -->
-        <a href="#" class="get-in-touch">Get in touch</a>
-        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme" aria-pressed="false">
-          <span class="theme-toggle__icon" aria-hidden="true"></span>
-        </button>
+        <div class="nav-actions">
+          <a href="#contact" class="get-in-touch js-scroll-contact">Get in touch</a>
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme" aria-pressed="false">
+            <span class="theme-toggle__icon" aria-hidden="true"></span>
+          </button>
+        </div>
       </nav>
     </section>
 
@@ -62,7 +73,7 @@
           and Python
         </p>
         <p>I love writing good code</p>
-        <a href="" class="portfolio-button">Get in touch</a>
+        <a href="#contact" class="portfolio-button js-scroll-contact">Get in touch</a>
       </div>
     </div>
 
@@ -203,10 +214,12 @@
     <section id="contact">
       <img src="imgs/contact.jpg" alt="contact us image" />
       <h3>Let's work together - contact me</h3>
-      <div class="contact-input">
-        <input type="email" placeholder="fahad@thedevnation.com" />
-        <a href="">Let's Connect</a>
-      </div>
+      <form id="contact-form" class="contact-input" novalidate>
+        <input id="contact-email" name="email" type="email" placeholder="fahad@thedevnation.com" required />
+        <textarea id="contact-message" name="message" placeholder="Write your message" rows="5" required></textarea>
+        <button type="submit">Let's Connect</button>
+      </form>
+      <p id="form-status" class="form-status" aria-live="polite"></p>
     </section>
     <!-- Footer -->
     <footer>
